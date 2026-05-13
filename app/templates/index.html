@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Customer Churn Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<header class="top-header">
+    <div>
+        <h1>Customer Churn Prediction</h1>
+        <p>Predict whether a customer is likely to leave the service</p>
+    </div>
+</header>
+
+<main class="page-wrapper">
+
+    <section class="form-card">
+        <h2>Customer Details</h2>
+
+        <form id="churnForm">
+
+            <div class="field">
+                <label>How long has the customer stayed? (months)</label>
+                <input type="number" name="tenure" placeholder="Example: 12" required>
+            </div>
+
+            <div class="field">
+                <label>Monthly bill amount</label>
+                <input type="number" step="0.01" name="MonthlyCharges" placeholder="Example: 75.50" required>
+            </div>
+
+            <div class="field">
+                <label>Total amount paid till now</label>
+                <input type="number" step="0.01" name="TotalCharges" placeholder="Example: 850.75" required>
+            </div>
+
+            <div class="field">
+                <label>Customer gender</label>
+                <select name="gender" required>
+                    <option value="Female">Female</option>
+                    <option value="Male">Male</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Is the customer a senior citizen?</label>
+                <select name="SeniorCitizen" required>
+                    <option value="0">No</option>
+                    <option value="1">Yes</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer have a partner?</label>
+                <select name="Partner" required>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer have family/dependents?</label>
+                <select name="Dependents" required>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer use phone service?</label>
+                <select name="PhoneService" required>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer have multiple phone lines?</label>
+                <select name="MultipleLines" required>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <option>No phone service</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Type of internet service</label>
+                <select name="InternetService" required>
+                    <option>Fiber optic</option>
+                    <option>DSL</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer have online security?</label>
+                <select name="OnlineSecurity" required>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <option>No internet service</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer have online backup?</label>
+                <select name="OnlineBackup" required>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <option>No internet service</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer have device protection?</label>
+                <select name="DeviceProtection" required>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <option>No internet service</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer have tech support?</label>
+                <select name="TechSupport" required>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <option>No internet service</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer stream TV?</label>
+                <select name="StreamingTV" required>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <option>No internet service</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer stream movies?</label>
+                <select name="StreamingMovies" required>
+                    <option>No</option>
+                    <option>Yes</option>
+                    <option>No internet service</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Customer contract type</label>
+                <select name="Contract" required>
+                    <option>Month-to-month</option>
+                    <option>One year</option>
+                    <option>Two year</option>
+                </select>
+            </div>
+
+            <div class="field">
+                <label>Does the customer use paperless billing?</label>
+                <select name="PaperlessBilling" required>
+                    <option>Yes</option>
+                    <option>No</option>
+                </select>
+            </div>
+
+            <div class="field full">
+                <label>Customer payment method</label>
+                <select name="PaymentMethod" required>
+                    <option>Electronic check</option>
+                    <option>Mailed check</option>
+                    <option>Bank transfer (automatic)</option>
+                    <option>Credit card (automatic)</option>
+                </select>
+            </div>
+
+            <button type="submit">Predict Churn</button>
+        </form>
+    </section>
+
+    <section class="result-card">
+        <h2>Prediction Result</h2>
+        <div id="result">
+            <p class="empty-result">Submit customer details to see prediction.</p>
+        </div>
+    </section>
+
+</main>
+
+<script src="/static/script.js"></script>
+</body>
+</html>
