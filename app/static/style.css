@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -27,6 +31,7 @@ body {
 }
 
 .page-wrapper {
+    width: 100%;
     max-width: 1200px;
     margin: 35px auto;
     padding: 0 20px;
@@ -37,11 +42,12 @@ body {
 
 .form-card,
 .result-card {
-    background: rgba(255, 255, 255, 0.95);
+    background: rgba(255, 255, 255, 0.96);
     border-radius: 20px;
     padding: 30px;
     box-shadow: 0 16px 40px rgba(15, 23, 42, 0.1);
     border: 1px solid #e5e7eb;
+    min-width: 0;
 }
 
 .form-card h2,
@@ -59,6 +65,7 @@ form {
 .field {
     display: flex;
     flex-direction: column;
+    min-width: 0;
 }
 
 .field.full {
@@ -70,10 +77,12 @@ label {
     font-weight: 700;
     color: #374151;
     margin-bottom: 7px;
+    line-height: 1.4;
 }
 
 input,
 select {
+    width: 100%;
     padding: 13px;
     border: 1px solid #cbd5e1;
     border-radius: 12px;
@@ -90,6 +99,7 @@ select:focus {
 
 button {
     grid-column: span 2;
+    width: 100%;
     padding: 15px;
     background: linear-gradient(135deg, #4f46e5, #2563eb);
     color: white;
@@ -182,23 +192,123 @@ button:hover {
     }
 }
 
+/* Tablet */
 @media (max-width: 900px) {
+    .top-header {
+        padding: 28px 32px;
+    }
+
     .page-wrapper {
         grid-template-columns: 1fr;
+        margin: 28px auto;
+    }
+
+    .result-card {
+        order: -1;
     }
 }
 
+/* Mobile */
 @media (max-width: 650px) {
+    body {
+        background: #f8fafc;
+    }
+
     .top-header {
-        padding: 24px;
+        padding: 24px 18px;
+        text-align: center;
+    }
+
+    .top-header h1 {
+        font-size: 24px;
+        line-height: 1.25;
+    }
+
+    .top-header p {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .page-wrapper {
+        padding: 0 12px;
+        margin: 18px auto;
+        gap: 16px;
+    }
+
+    .form-card,
+    .result-card {
+        padding: 18px;
+        border-radius: 16px;
+        box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+    }
+
+    .form-card h2,
+    .result-card h2 {
+        font-size: 20px;
     }
 
     form {
         grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     .field.full,
     button {
         grid-column: span 1;
+    }
+
+    label {
+        font-size: 13px;
+    }
+
+    input,
+    select {
+        font-size: 14px;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    button {
+        padding: 14px;
+        font-size: 15px;
+        border-radius: 12px;
+    }
+
+    .result-box {
+        padding: 18px;
+        border-radius: 14px;
+    }
+
+    .result-box h3 {
+        font-size: 24px;
+    }
+
+    .result-box p {
+        font-size: 15px;
+    }
+
+    .probability {
+        font-size: 30px;
+    }
+
+    .note {
+        font-size: 13px;
+        padding: 12px;
+    }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+    .top-header h1 {
+        font-size: 22px;
+    }
+
+    .page-wrapper {
+        padding: 0 10px;
+    }
+
+    .form-card,
+    .result-card {
+        padding: 15px;
     }
 }
